@@ -27,6 +27,8 @@ def main() -> None:
         raise ValueError("entry must not contain control characters")
     if "\t" in line:
         raise ValueError("entry must not contain tabs: one clean line")
+    if "  " in line:
+        raise ValueError("entry must not contain double spaces")
     if not line.endswith("."):
         raise ValueError("entry must end with a full stop")
     out_dir = os.environ.get("MAKEFUN_OUTPUT_DIR", "/output")
